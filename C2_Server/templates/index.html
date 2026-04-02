@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>labRAT Tactical  Ops</title>
+  <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet"/>
+</head>
+<body>
+<div class="c2-root">
+
+  <div class="c2-header">
+    <div class="c2-title">LabRAT <span>///</span> TACTICAL OPS</div>
+    <div class="c2-status-bar">
+      <span class="live">● LIVE LINK</span>
+      <span>TOTAL AGENTS: <span id="agent-total">0</span></span>
+      <span>ONLINE AGENTS: <span id="agent-count">0</span></span>
+      <span>MADE BY: LUX1DUS</span>
+    </div>
+  </div>
+
+  <div class="c2-left">
+    <div class="panel-header">// ACTIVE NODES</div>
+    <div class="agent-list" id="online-agent-list"></div>
+    <div class="panel-header">// INACTIVE NODES</div>
+    <div class="agent-list" id="offline-agent-list"></div>
+    
+    <div class="left-bottom">
+      <form id="cmd-form">
+          <input class="cmd-input" id="cmd-field" type="text" placeholder="> select agent & enter command" autocomplete="off" disabled/>
+          <button type="submit" class="cmd-btn" id="cmd-btn" disabled>[ DISPATCH ]</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="c2-center">
+    <div class="tab-row">
+      <button class="tab active">TERMINAL</button>
+      <button class="tab">TASKS (OFFLINE)</button>
+    </div>
+
+    <div class="tab-content active">
+      <div class="terminal-area" id="terminal-out">
+<div class="terminal-welcome-banner">
+  __________________________________________________________
+ /                                                          \
+|    _                 _      _____            _______       |
+|   | |               | |    |  __ \     /\   |__   __|      |
+|   | |       __ _    | |__  | |__) |   /  \     | |         |
+|   | |      / _` |   | '_ \ |  _  /   / /\ \    | |         |
+|   | |____ | (_| | _ | |_) || | \ \  / ____ \   | |         |
+|   |______| \__,_|(_)|_.__/ |_|  \_\/_/    \_\  |_|         |
+|                                                            |
+ \______________________________________ [ v1.0.4-STABLE ]__/
+
+                                                            ████████                    
+                                                        ████████░░░░██                  
+                                                    ████░░██░░██░░░░██                  
+                                                    ██░░░░░░░░██░░░░██                  
+                                                      ██░░░░░░░░██░░██████              
+                                                        ████░░░░░░░░░░░░░░██            
+                                                        ████░░░░░░░░██  ████            
+                                                      ██░░░░░░░░░░░░░░░░██████          
+                                                ██████░░░░░░░░████░░░░██░░██░░██        
+                                            ████░░░░░░░░░░░░██░░░░████░░░░██████        
+                                          ██░░░░░░░░░░░░░░░░░░░░░░██  ██████            
+                                          ██░░░░░░░░░░░░░░░░░░░░░░████      ██          
+    ████████████████████                ██░░░░░░░░░░░░░░░░░░░░██░░░░██        ██        
+  ██░░░░░░░░░░░░░░░░░░░░██████████      ██░░░░░░░░░░░░░░░░░░░░░░██░░██                  
+    ██████████████████░░░░░░░░░░░░████  ██░░░░░░░░░░░░░░░░░░████  ████                  
+                      ██████████░░░░░░████░░░░░░░░░░░░░░████░░                          
+                                ████░░░░██░░░░░░░░░░░░░░░░░░██                          
+                                    ██░░░░██░░░░░░░░░░░░░░░░██
+
+// AWAITING TARGET SELECTION //
+</div>
+      </div>
+    </div>
+  </div>
+
+<div class="c2-right">
+    
+    <div class="panel-header">// TARGET INTEL</div>
+    
+    <div class="sysinfo">
+      <div class="info-row"><span class="info-label">OS</span><span class="info-val" id="r-os">--</span></div>
+      <div class="info-row"><span class="info-label">CPU</span><span class="info-val" id="r-cpu">--</span></div>
+      <div class="info-row"><span class="info-label">GPU</span><span class="info-val" id="r-gpu">--</span></div>
+      <div class="info-row"><span class="info-label">RAM</span><span class="info-val" id="r-ram-tot">--</span></div>
+      <div class="info-row"><span class="info-label">DISK (C:)</span><span class="info-val" id="r-disk">--</span></div>
+    </div>
+
+    <div class="mini-chart">
+      <div class="chart-title">// RESOURCE USAGE</div>
+      
+      <div class="bar-row">
+        <span class="bar-label">CPU</span>
+        <div class="bar-track"><div class="bar-fill" id="b-cpu" style="width:0%"></div></div>
+        <span class="bar-val" id="v-cpu">0%</span>
+      </div>
+      
+      <div class="bar-row">
+        <span class="bar-label">MEM</span>
+        <div class="bar-track"><div class="bar-fill" id="b-mem" style="width:0%"></div></div>
+        <span class="bar-val" id="v-mem">0%</span>
+      </div>
+    </div>
+
+    <div class="panel-header" style="border-top: none;">// EVENT STREAM</div>
+    <div class="event-log" id="ev-log"></div>
+    
+  </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

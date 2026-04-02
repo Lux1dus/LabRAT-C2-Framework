@@ -1,0 +1,39 @@
+# Bytecode Python và môi trường ảo
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+env/
+venv/
+.venv/
+build/
+dist/
+*.egg-info/
+
+# Tệp IDE
+.vscode/
+.idea/
+
+# Tệp thực thi và nhị phân
+*.exe
+*.dll
+*.so
+*.zip
+*.tar.gz
+
+# Cơ sở dữ liệu và tệp đầu ra
+c2_database.db
+*.db
+*.log
+
+# Dữ liệu tải lên/tải xuống
+c2_uploads/
+c2_downloads/
+
+# Bí mật (khóa, chứng chỉ)
+*.pem
+*.key
+*.env
+
+# Hệ điều hành
+.DS_Store

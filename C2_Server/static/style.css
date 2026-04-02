@@ -1,0 +1,163 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* BỎ PADDING, ÉP KÍN MÀN HÌNH */
+body { 
+    background: #050805; 
+    display: flex; 
+    height: 100vh; 
+    width: 100vw; 
+    overflow: hidden; 
+}
+
+/* ROOT & GRID LAYOUT - FULLSCREEN */
+.c2-root {
+    background: #080c0a; color: #39ff85; font-family: 'Courier New', monospace;
+    height: 100%; /* Bung kín chiều cao */
+    width: 100%;  /* Bung kín chiều rộng */
+    max-width: none; /* Xóa giới hạn kích thước */
+    display: grid;
+    grid-template-rows: 48px 1fr;
+    grid-template-columns: 300px 1fr 300px; /* Tăng nhẹ độ rộng 2 cột bên để cân đối với màn hình lớn */
+    border: none; /* Xóa viền ngoài cùng */
+    position: relative; overflow: hidden;
+}
+
+.c2-root::before {
+    content: ''; position: absolute; inset: 0;
+    background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,255,80,0.015) 2px, rgba(0,255,80,0.015) 4px);
+    pointer-events: none; z-index: 10;
+}
+
+/* HEADER */
+.c2-header { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; padding: 0 16px; background: #0c1410; border-bottom: 1px solid #1e4a30; }
+.c2-title { font-size: 14px; font-weight: 700; letter-spacing: 3px; color: #39ff85; text-transform: uppercase; }
+.c2-title span { color: #ff4545; }
+.c2-status-bar { display: flex; gap: 20px; font-size: 12px; color: #3a7a55; }
+.c2-status-bar .live { color: #39ff85; animation: blink 1.2s step-end infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+
+/* PANELS */
+.c2-left { background: #090e0c; border-right: 1px solid #1a3a28; display: flex; flex-direction: column; overflow: hidden; }
+.c2-center { display: flex; flex-direction: column; overflow: hidden; background: #080c0a; min-width: 0; }
+.c2-right { background: #090e0c; border-left: 1px solid #1a3a28; display: flex; flex-direction: column; overflow: hidden; }
+
+.panel-header { padding: 8px 12px; font-size: 11px; letter-spacing: 2px; color: #2a6a44; border-bottom: 1px solid #1a3a28; text-transform: uppercase; font-weight: bold; }
+
+/* AGENT LIST (LEFT) */
+.agent-list { flex: 1; overflow-y: auto; padding: 4px 0; }
+.agent-item { display: grid; grid-template-columns: 8px 1fr auto; align-items: center; gap: 8px; padding: 8px 12px; cursor: pointer; border-bottom: 1px solid #0f1f18; transition: background 0.1s; }
+.agent-item:hover, .agent-item.selected { background: #0f2018; }
+.agent-item.selected { border-left: 3px solid #39ff85; padding-left: 9px; }
+
+.agent-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.dot-online { background: #39ff85; box-shadow: 0 0 6px #39ff85; }
+.dot-dead { background: #ff4545; box-shadow: 0 0 6px #ff4545; }
+
+.agent-info { min-width: 0; }
+.agent-name { font-size: 12px; color: #c8ffd8; font-weight: bold;}
+.agent-ip { font-size: 10px; color: #2a6a44; margin-top: 3px;}
+
+/* COMMAND INPUT (LEFT BOTTOM) */
+.left-bottom { padding: 12px; border-top: 1px solid #1a3a28; background: #0c1410;}
+.cmd-input { width: 100%; background: #0f2018; border: 1px solid #1e4a30; color: #39ff85; padding: 8px; font-family: inherit; font-size: 13px; outline: none; margin-bottom: 8px; }
+.cmd-input:focus { border-color: #39ff85; }
+.cmd-btn { width: 100%; background: #0f2a1a; border: 1px solid #2a6a44; color: #39ff85; padding: 8px; font-weight: bold; letter-spacing: 2px; cursor: pointer; transition: 0.15s; }
+.cmd-btn:hover { background: #163d26; }
+
+/* TERMINAL (CENTER) - KHÓA CHỐNG VỠ & ÉP XUỐNG DÒNG */
+.tab-row { display: flex; border-bottom: 1px solid #1a3a28; background: #0a0f0d; flex-shrink: 0; }
+.tab { padding: 10px 20px; font-size: 11px; letter-spacing: 2px; cursor: pointer; border: none; background: transparent; color: #2a6a44; border-bottom: 2px solid transparent; transition: 0.15s; font-weight: bold;}
+.tab.active { color: #39ff85; border-bottom: 2px solid #39ff85; }
+
+.tab-content { display: none; flex: 1; min-height: 0; flex-direction: column; overflow: hidden; }
+.tab-content.active { display: flex; }
+
+.terminal-area {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 16px;
+    font-size: 13px;
+    line-height: 1.5;
+    white-space: pre-wrap; /* Chống XSS <DIR> & xuống dòng */
+    word-wrap: break-word;
+    word-break: break-all;
+    color: #7acc80;
+}
+.terminal-welcome-banner {
+    display: block;
+    line-height: 1.15;
+    white-space: pre;
+    margin-bottom: 20px;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+    animation: terminal-glow 4s ease-in-out infinite;
+}
+
+@keyframes terminal-glow {
+    0%, 100% { 
+        opacity: 1; 
+        text-shadow: 0 0 8px rgba(20, 171, 0, 0.837); 
+    }
+    50% { 
+        opacity: 0.8; 
+        text-shadow: 0 0 15px rgba(55, 190, 9, 0.811), 0 0 20px rgba(255, 255, 255, 0.4); 
+    }
+    52% { opacity: 1; }
+    53% { opacity: 0.7; }
+    54% { opacity: 1; }
+}
+
+/* EVENT LOGS (RIGHT) */
+.event-log { flex: 1; overflow-y: auto; padding: 5px; }
+.ev-item { padding: 8px; border-bottom: 1px dashed #0f1f18; }
+.ev-time { font-size: 10px; color: #1e5233; margin-bottom: 3px;}
+.ev-msg { font-size: 11px; color: #c8ffd8; }
+
+/* CUSTOM SCROLLBARS */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #090e0c; }
+::-webkit-scrollbar-thumb { background: #1e4a30; }
+::-webkit-scrollbar-thumb:hover { background: #2a6a44; }
+
+/* =========================================
+   TARGET INTEL & CHARTS (RIGHT PANEL)
+   ========================================= */
+.sysinfo { padding: 10px 15px; flex-shrink: 0; border-bottom: 1px solid #1a3a28; }
+.info-row {
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    gap: 8px;
+    font-size: 11px;
+    padding: 5px 0;
+    border-bottom: 1px solid #0f1f18;
+    align-items: start;
+}
+.info-label {
+    color: #2a6a44;
+    font-weight: bold;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+.info-val {
+    color: #c8ffd8;
+    line-height: 1.3;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    max-height: none;   /* Cho phép mở rộng để hiển thị hết nội dung */
+    overflow: visible;  /* Không chặn văn bản dài */
+}
+
+.mini-chart { padding: 15px; border-bottom: 1px solid #1a3a28; flex-shrink: 0; }
+.chart-title { font-size: 11px; color: #2a6a44; letter-spacing: 1px; margin-bottom: 10px; font-weight: bold; }
+
+.bar-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+.bar-label { font-size: 10px; color: #3a7a55; width: 25px; text-align: right; font-weight: bold; }
+.bar-track { flex: 1; background: #0f2018; height: 8px; border-radius: 2px; overflow: hidden; }
+
+/* Hiệu ứng thanh chạy và đổi màu */
+.bar-fill { height: 100%; background: #39ff85; transition: width 0.4s ease, background-color 0.4s; width: 0%; }
+.bar-fill.warn { background: #f0a500; }   /* Vàng/Cam khi hệ thống tải nặng (> 60%) */
+.bar-fill.danger { background: #ff4545; } /* Đỏ khi quá tải (> 85%) */
+
+.bar-val { font-size: 10px; color: #39ff85; width: 35px; text-align: right; }
