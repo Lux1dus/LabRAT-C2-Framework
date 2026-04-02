@@ -17,11 +17,7 @@ Bối cảnh của môi trường thử nghiệm đã được cô lập hoàn t
 Giai đoạn đầu tiên ngay sau khi payload được thực thi trên máy nạn nhân.
 
 <p align="center">
-  <a href="https://youtu.be/sdLhr0QD5PE" target="_blank">
-    <img src="https://img.youtube.com/vi/sdLhr0QD5PE/0.jpg" alt="Agent Check-in Demo" width="900">
-    <br>
-    <b>🎬 Xem Demo: Agent Check-in & Telemetry</b>
-  </a>
+  <video src="https://github.com/user-attachments/assets/ad6cda2e-5a37-4d03-8140-0b4da610e2f4" width="100%" controls></video>
 </p>
 
 | Khía cạnh | Chi tiết luồng xử lý |
@@ -36,11 +32,7 @@ Giai đoạn đầu tiên ngay sau khi payload được thực thi trên máy n�
 Quản trị viên thực hiện điều khiển máy mục tiêu thông qua dòng lệnh trực tiếp.
 
 <p align="center">
-  <a href="https://youtu.be/LpGVMEryJ0Q" target="_blank">
-    <img src="https://img.youtube.com/vi/LpGVMEryJ0Q/0.jpg" alt="Stateful Shell Demo" width="900">
-    <br>
-    <b>🎬 Xem Demo: Stateful Shell Execution</b>
-  </a>
+  <video src="https://github.com/user-attachments/assets/0040efb3-ddd9-440f-98eb-1cf0ae84dfb0" width="100%" controls></video>
 </p>
 
 | Khía cạnh | Chi tiết luồng xử lý |
@@ -55,11 +47,7 @@ Quản trị viên thực hiện điều khiển máy mục tiêu thông qua dò
 Đẩy các công cụ độc hại khác từ máy chủ C2 xuống máy mục tiêu.
 
 <p align="center">
-  <a href="https://youtu.be/kmMUwu-p5SA" target="_blank">
-    <img src="https://img.youtube.com/vi/kmMUwu-p5SA/0.jpg" alt="Upload Command Demo" width="900">
-    <br>
-    <b>🎬 Xem Demo: Data Infiltration (Upload)</b>
-  </a>
+  <video src="https://github.com/user-attachments/assets/3b6063ca-1d52-43b5-a23e-f62bd482a993" width="100%" controls></video>
 </p>
 
 | Khía cạnh | Chi tiết luồng xử lý |
@@ -73,11 +61,7 @@ Quản trị viên thực hiện điều khiển máy mục tiêu thông qua dò
 Thu thập các tài liệu nhạy cảm từ máy nạn nhân về máy chủ điều khiển.
 
 <p align="center">
-  <a href="https://youtu.be/ym_KG4xskjM" target="_blank">
-    <img src="https://img.youtube.com/vi/ym_KG4xskjM/0.jpg" alt="Download Command Demo" width="900">
-    <br>
-    <b>🎬 Xem Demo: Data Exfiltration (Download)</b>
-  </a>
+  <video src="https://github.com/user-attachments/assets/a3ccb2a9-2696-4fd6-9722-63f90cd65b56" width="100%" controls></video>
 </p>
 
 | Khía cạnh | Chi tiết luồng xử lý |
@@ -91,11 +75,7 @@ Thu thập các tài liệu nhạy cảm từ máy nạn nhân về máy chủ �
 Agent tự hủy để tránh bị phát hiện sau khi hoàn thành chiến dịch.
 
 <p align="center">
-  <a href="https://youtu.be/3nUC2m-ALxE" target="_blank">
-    <img src="https://img.youtube.com/vi/3nUC2m-ALxE/0.jpg" alt="Erase Agent Demo" width="900">
-    <br>
-    <b>🎬 Xem Demo: Persistence Erase & Suicide</b>
-  </a>
+  <video src="https://github.com/user-attachments/assets/846ca9bb-c35e-4eaf-a31f-bc52e883bb40" width="100%" controls></video>
 </p>
 
 | Khía cạnh | Chi tiết luồng xử lý |
