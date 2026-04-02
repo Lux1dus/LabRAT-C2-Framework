@@ -18,9 +18,9 @@ Giai đoạn đầu tiên ngay sau khi payload được thực thi trên máy n�
 
 <div align="center">
   <video src="https://github.com/user-attachments/assets/ad6cda2e-5a37-4d03-8140-0b4da610e2f4" width="900" controls></video>
-  <br>
   <em>Xem video phân giải gốc tại đây 👉: <a href="https://youtu.be/sdLhr0QD5PE">YouTube Link</a></em>
 </div>
+<br>
 
 | Khía cạnh | Chi tiết luồng xử lý |
 | :--- | :--- |
@@ -35,9 +35,9 @@ Quản trị viên thực hiện điều khiển máy mục tiêu thông qua dò
 
 <div align="center">
   <video src="https://github.com/user-attachments/assets/0040efb3-ddd9-440f-98eb-1cf0ae84dfb0" width="900" controls></video>
-  <br>
   <em>Xem video phân giải gốc tại đây 👉: <a href="https://youtu.be/LpGVMEryJ0Q">YouTube Link</a></em>
 </div>
+<br>
 
 | Khía cạnh | Chi tiết luồng xử lý |
 | :--- | :--- |
@@ -52,9 +52,9 @@ Quản trị viên thực hiện điều khiển máy mục tiêu thông qua dò
 
 <div align="center">
   <video src="https://github.com/user-attachments/assets/3b6063ca-1d52-43b5-a23e-f62bd482a993" width="900" controls></video>
-  <br>
   <em>Xem video phân giải gốc tại đây 👉: <a href="https://youtu.be/kmMUwu-p5SA">YouTube Link</a></em>
 </div>
+<br>
 
 | Khía cạnh | Chi tiết luồng xử lý |
 | :--- | :--- |
@@ -68,9 +68,9 @@ Thu thập các tài liệu nhạy cảm từ máy nạn nhân về máy chủ �
 
 <div align="center">
   <video src="https://github.com/user-attachments/assets/a3ccb2a9-2696-4fd6-9722-63f90cd65b56" width="900" controls></video>
-  <br>
   <em>Xem video phân giải gốc tại đây 👉: <a href="https://youtu.be/ym_KG4xskjM">YouTube Link</a></em>
 </div>
+<br>
 
 | Khía cạnh | Chi tiết luồng xử lý |
 | :--- | :--- |
@@ -84,9 +84,9 @@ Agent tự hủy để tránh bị phát hiện sau khi hoàn thành chiến d�
 
 <div align="center">
   <video src="https://github.com/user-attachments/assets/846ca9bb-c35e-4eaf-a31f-bc52e883bb40" width="900" controls></video>
-  <br>
   <em>Xem video phân giải gốc tại đây 👉: <a href="https://youtu.be/3nUC2m-ALxE">YouTube Link</a></em>
 </div>
+<br>
 
 | Khía cạnh | Chi tiết luồng xử lý |
 | :--- | :--- |
