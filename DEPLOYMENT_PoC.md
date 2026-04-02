@@ -13,7 +13,7 @@ Bối cảnh của môi trường thử nghiệm đã được cô lập hoàn t
 
 ## 2. Chiến Dịch Thực Thi (The Campaign Walkthrough)
 
-### 🚩 Bước 1: Xâm nhập & Lập hồ sơ mục tiêu (Initial Access)
+### Bước 1: Xâm nhập & Lập hồ sơ mục tiêu (Initial Access)
 Giai đoạn đầu tiên ngay sau khi payload được thực thi trên máy nạn nhân.
 
 <div align="center">
@@ -30,7 +30,7 @@ Giai đoạn đầu tiên ngay sau khi payload được thực thi trên máy n�
 
 ---
 
-### 💻 Bước 2: Thực thi Shell có trạng thái (Stateful Shell)
+### Bước 2: Thực thi Shell có trạng thái (Stateful Shell)
 Quản trị viên thực hiện điều khiển máy mục tiêu thông qua dòng lệnh trực tiếp.
 
 <div align="center">
@@ -47,7 +47,7 @@ Quản trị viên thực hiện điều khiển máy mục tiêu thông qua dò
 
 ---
 
-### 📥 Bước 3: Triển khai Payload bổ sung (Data Infiltration)
+### Bước 3: Triển khai Payload bổ sung (Data Infiltration)
 Đẩy các công cụ độc hại khác từ máy chủ C2 xuống máy mục tiêu.
 
 <div align="center">
@@ -63,7 +63,7 @@ Quản trị viên thực hiện điều khiển máy mục tiêu thông qua dò
 
 ---
 
-### 📤 Bước 4: Khai thác & Rút trích dữ liệu (Exfiltration)
+### Bước 4: Khai thác & Rút trích dữ liệu (Exfiltration)
 Thu thập các tài liệu nhạy cảm từ máy nạn nhân về máy chủ điều khiển.
 
 <div align="center">
@@ -79,7 +79,7 @@ Thu thập các tài liệu nhạy cảm từ máy nạn nhân về máy chủ �
 
 ---
 
-### 💨 Bước 5: Rút lui & Xóa dấu vết (Kill Switch)
+### Bước 5: Rút lui & Xóa dấu vết (Kill Switch)
 Agent tự hủy để tránh bị phát hiện sau khi hoàn thành chiến dịch.
 
 <div align="center">
