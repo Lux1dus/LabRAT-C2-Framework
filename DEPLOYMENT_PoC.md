@@ -13,11 +13,15 @@ Bối cảnh của môi trường thử nghiệm đã được cô lập hoàn t
 
 ## 2. Chiến Dịch Thực Thi (The Campaign Walkthrough)
 
-### Bước 1: Xâm nhập & Lập hồ sơ mục tiêu (Initial Access)
+### 🚩 Bước 1: Xâm nhập & Lập hồ sơ mục tiêu (Initial Access)
 Giai đoạn đầu tiên ngay sau khi payload được thực thi trên máy nạn nhân.
 
 <p align="center">
-  <video src="media/videos/agent_checkin.mp4" width="900" controls></video>
+  <a href="https://youtu.be/sdLhr0QD5PE" target="_blank">
+    <img src="https://img.youtube.com/vi/sdLhr0QD5PE/0.jpg" alt="Agent Check-in Demo" width="900">
+    <br>
+    <b>🎬 Xem Demo: Agent Check-in & Telemetry</b>
+  </a>
 </p>
 
 | Khía cạnh | Chi tiết luồng xử lý |
@@ -28,11 +32,15 @@ Giai đoạn đầu tiên ngay sau khi payload được thực thi trên máy n�
 
 ---
 
-### Bước 2: Thực thi Shell có trạng thái (Stateful Shell)
+### 💻 Bước 2: Thực thi Shell có trạng thái (Stateful Shell)
 Quản trị viên thực hiện điều khiển máy mục tiêu thông qua dòng lệnh trực tiếp.
 
 <p align="center">
-  <video src="media/videos/stateful_shell.mp4" width="900" controls></video>
+  <a href="https://youtu.be/LpGVMEryJ0Q" target="_blank">
+    <img src="https://img.youtube.com/vi/LpGVMEryJ0Q/0.jpg" alt="Stateful Shell Demo" width="900">
+    <br>
+    <b>🎬 Xem Demo: Stateful Shell Execution</b>
+  </a>
 </p>
 
 | Khía cạnh | Chi tiết luồng xử lý |
@@ -43,11 +51,15 @@ Quản trị viên thực hiện điều khiển máy mục tiêu thông qua dò
 
 ---
 
-### Bước 3: Triển khai Payload bổ sung (Data Infiltration)
+### 📥 Bước 3: Triển khai Payload bổ sung (Data Infiltration)
 Đẩy các công cụ độc hại khác từ máy chủ C2 xuống máy mục tiêu.
 
 <p align="center">
-  <video src="media/videos/upload_cmd.mp4" width="900" controls></video>
+  <a href="https://youtu.be/kmMUwu-p5SA" target="_blank">
+    <img src="https://img.youtube.com/vi/kmMUwu-p5SA/0.jpg" alt="Upload Command Demo" width="900">
+    <br>
+    <b>🎬 Xem Demo: Data Infiltration (Upload)</b>
+  </a>
 </p>
 
 | Khía cạnh | Chi tiết luồng xử lý |
@@ -57,11 +69,15 @@ Quản trị viên thực hiện điều khiển máy mục tiêu thông qua dò
 
 ---
 
-### Bước 4: Khai thác & Rút trích dữ liệu (Exfiltration)
+### 📤 Bước 4: Khai thác & Rút trích dữ liệu (Exfiltration)
 Thu thập các tài liệu nhạy cảm từ máy nạn nhân về máy chủ điều khiển.
 
 <p align="center">
-  <video src="media/videos/download_cmd.mp4" width="900" controls></video>
+  <a href="https://youtu.be/ym_KG4xskjM" target="_blank">
+    <img src="https://img.youtube.com/vi/ym_KG4xskjM/0.jpg" alt="Download Command Demo" width="900">
+    <br>
+    <b>🎬 Xem Demo: Data Exfiltration (Download)</b>
+  </a>
 </p>
 
 | Khía cạnh | Chi tiết luồng xử lý |
@@ -71,11 +87,15 @@ Thu thập các tài liệu nhạy cảm từ máy nạn nhân về máy chủ �
 
 ---
 
-### Bước 5: Rút lui & Xóa dấu vết (Kill Switch)
+### 💨 Bước 5: Rút lui & Xóa dấu vết (Kill Switch)
 Agent tự hủy để tránh bị phát hiện sau khi hoàn thành chiến dịch.
 
 <p align="center">
-  <video src="media/videos/erase_agent.mp4" width="900" controls></video>
+  <a href="https://youtu.be/3nUC2m-ALxE" target="_blank">
+    <img src="https://img.youtube.com/vi/3nUC2m-ALxE/0.jpg" alt="Erase Agent Demo" width="900">
+    <br>
+    <b>🎬 Xem Demo: Persistence Erase & Suicide</b>
+  </a>
 </p>
 
 | Khía cạnh | Chi tiết luồng xử lý |
@@ -96,5 +116,5 @@ Dưới góc độ của một **Blue Team / SOC Analyst**, chúng ta có thể 
 
 ---
 <p align="center">
-  <b>Made with 💻 and ☕ by <a href="https://github.com/Lux1dus">Lux1dus</a></b>
+  <b>LabRAT Project - Educational Proof of Concept</b>
 </p>
