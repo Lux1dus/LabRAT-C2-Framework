@@ -16,9 +16,11 @@ Bối cảnh của môi trường thử nghiệm đã được cô lập hoàn t
 ### 🚩 Bước 1: Xâm nhập & Lập hồ sơ mục tiêu (Initial Access)
 Giai đoạn đầu tiên ngay sau khi payload được thực thi trên máy nạn nhân.
 
-<p align="center">
-  <video src="https://github.com/user-attachments/assets/ad6cda2e-5a37-4d03-8140-0b4da610e2f4" width="100%" controls></video>
-</p>
+<div align="center">
+  <video src="https://github.com/user-attachments/assets/ad6cda2e-5a37-4d03-8140-0b4da610e2f4" width="900" controls></video>
+  <br>
+  <em>Xem video phân giải gốc tại đây 👉: <a href="https://youtu.be/sdLhr0QD5PE">YouTube Link</a></em>
+</div>
 
 | Khía cạnh | Chi tiết luồng xử lý |
 | :--- | :--- |
@@ -31,9 +33,11 @@ Giai đoạn đầu tiên ngay sau khi payload được thực thi trên máy n�
 ### 💻 Bước 2: Thực thi Shell có trạng thái (Stateful Shell)
 Quản trị viên thực hiện điều khiển máy mục tiêu thông qua dòng lệnh trực tiếp.
 
-<p align="center">
-  <video src="https://github.com/user-attachments/assets/0040efb3-ddd9-440f-98eb-1cf0ae84dfb0" width="100%" controls></video>
-</p>
+<div align="center">
+  <video src="https://github.com/user-attachments/assets/0040efb3-ddd9-440f-98eb-1cf0ae84dfb0" width="900" controls></video>
+  <br>
+  <em>Xem video phân giải gốc tại đây 👉: <a href="https://youtu.be/LpGVMEryJ0Q">YouTube Link</a></em>
+</div>
 
 | Khía cạnh | Chi tiết luồng xử lý |
 | :--- | :--- |
@@ -46,9 +50,11 @@ Quản trị viên thực hiện điều khiển máy mục tiêu thông qua dò
 ### 📥 Bước 3: Triển khai Payload bổ sung (Data Infiltration)
 Đẩy các công cụ độc hại khác từ máy chủ C2 xuống máy mục tiêu.
 
-<p align="center">
-  <video src="https://github.com/user-attachments/assets/3b6063ca-1d52-43b5-a23e-f62bd482a993" width="100%" controls></video>
-</p>
+<div align="center">
+  <video src="https://github.com/user-attachments/assets/3b6063ca-1d52-43b5-a23e-f62bd482a993" width="900" controls></video>
+  <br>
+  <em>Xem video phân giải gốc tại đây 👉: <a href="https://youtu.be/kmMUwu-p5SA">YouTube Link</a></em>
+</div>
 
 | Khía cạnh | Chi tiết luồng xử lý |
 | :--- | :--- |
@@ -60,9 +66,11 @@ Quản trị viên thực hiện điều khiển máy mục tiêu thông qua dò
 ### 📤 Bước 4: Khai thác & Rút trích dữ liệu (Exfiltration)
 Thu thập các tài liệu nhạy cảm từ máy nạn nhân về máy chủ điều khiển.
 
-<p align="center">
-  <video src="https://github.com/user-attachments/assets/a3ccb2a9-2696-4fd6-9722-63f90cd65b56" width="100%" controls></video>
-</p>
+<div align="center">
+  <video src="https://github.com/user-attachments/assets/a3ccb2a9-2696-4fd6-9722-63f90cd65b56" width="900" controls></video>
+  <br>
+  <em>Xem video phân giải gốc tại đây 👉: <a href="https://youtu.be/ym_KG4xskjM">YouTube Link</a></em>
+</div>
 
 | Khía cạnh | Chi tiết luồng xử lý |
 | :--- | :--- |
@@ -74,9 +82,11 @@ Thu thập các tài liệu nhạy cảm từ máy nạn nhân về máy chủ �
 ### 💨 Bước 5: Rút lui & Xóa dấu vết (Kill Switch)
 Agent tự hủy để tránh bị phát hiện sau khi hoàn thành chiến dịch.
 
-<p align="center">
-  <video src="https://github.com/user-attachments/assets/846ca9bb-c35e-4eaf-a31f-bc52e883bb40" width="100%" controls></video>
-</p>
+<div align="center">
+  <video src="https://github.com/user-attachments/assets/846ca9bb-c35e-4eaf-a31f-bc52e883bb40" width="900" controls></video>
+  <br>
+  <em>Xem video phân giải gốc tại đây 👉: <a href="https://youtu.be/3nUC2m-ALxE">YouTube Link</a></em>
+</div>
 
 | Khía cạnh | Chi tiết luồng xử lý |
 | :--- | :--- |
