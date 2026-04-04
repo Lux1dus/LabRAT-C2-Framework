@@ -94,7 +94,7 @@ python agent.py
 
 ---
 
-### 🔄 Quy Trình Hoạt Động (Workflow)
+### Quy Trình Hoạt Động (Workflow)
 
 ![Quy trình hoạt động](media/images/quytrinhhethong.png)
 
@@ -128,7 +128,7 @@ Hệ thống vận hành nhờ 8 API cốt lõi, áp dụng Polling cho UI (0.5s
 
 ---
 
-## V. Các Điểm Hạn Chế & Cần Cải Thiện (Current Limitations)
+## IV. Các Điểm Hạn Chế & Cần Cải Thiện (Current Limitations)
 
 Là một dự án Lab (Proof of Concept), **labRAT** vẫn còn một số điểm yếu cốt lõi nếu bị triển khai trong môi trường thực chiến có hệ thống giám sát chặt chẽ (EDR/IDS):
 
@@ -140,7 +140,7 @@ Là một dự án Lab (Proof of Concept), **labRAT** vẫn còn một số đi�
 
 ---
 
-## VI. Hướng Phát Triển Tương Lai (Future Roadmap)
+## V. Hướng Phát Triển Tương Lai (Future Roadmap)
 
 Để nâng cấp labRAT tiệm cận hơn với một C2 Framework cấp độ nghiên cứu (Research-grade) và tăng khả năng lẩn tránh (Defense Evasion), lộ trình phát triển được chia thành các giai đoạn sau:
 
@@ -151,6 +151,20 @@ Là một dự án Lab (Proof of Concept), **labRAT** vẫn còn một số đi�
 | **Phase 4** | **Mã hóa Giao tiếp**<br>*(Payload Encryption)* | Tích hợp TLS/HTTPS hoặc tự bọc (wrap) dữ liệu API bằng các thuật toán mã hóa mạnh như AES-256 kết hợp trao đổi khóa RSA. | Chống lại việc phân tích gói tin mạng và che giấu hoàn toàn các thao tác điều khiển. |
 | **Phase 5** | **Tàng hình Nhịp tim**<br>*(Beacon Jittering)* | Thay vì ngủ cố định 1s, Agent sẽ dùng thuật toán random thời gian ngủ (VD: 2s ± 15%). | Đánh lừa các thuật toán phân tích hành vi mạng dựa trên chu kỳ tĩnh của Blue Team. |
 | **Phase 6** | **Tối ưu Hóa Payload**<br>*(Compiled Language)* | Chuyển đổi toàn bộ mã nguồn Agent từ Python sang các ngôn ngữ biên dịch cấp thấp như `C/C++`, `Rust` hoặc `Golang`. | Giảm thiểu tối đa kích thước file (< 2MB), loại bỏ các thư viện dependency và gây khó khăn cho quá trình dịch ngược (Reverse Engineering). |
+
+---
+
+## VI. Những kiến thức mới (Key Learnings & Concepts)
+
+Trong quá trình xây dựng **labRAT**, tôi đã tiếp cận và làm chủ được các kỹ thuật cốt lõi sau:
+
+| Kiến thức | Chi tiết kỹ thuật & Ứng dụng |
+| :--- | :--- |
+| **Kiến trúc Client-Server (Flask)** | Xây dựng C2 Server quản lý Agent, triển khai cơ chế truyền tải tệp tin đa nền tảng (Linux/Windows) trong mạng LAN. |
+| **AJAX & JSON Dynamic Data** | Sử dụng Fetch API để đồng bộ hóa dữ liệu thời gian thực giữa UI và Backend; xử lý và trích xuất dữ liệu từ cấu trúc JSON. |
+| **Payload Packaging (PyInstaller)** | Đóng gói mã nguồn Python thành tệp thực thi `.exe` độc lập, tối ưu hóa khả năng chạy trên môi trường mục tiêu không có sẵn Python. |
+| **System Interaction (os & sys)** | Thao tác sâu với OS qua Absolute Path, quản lý Working Directory (CWD) và điều khiển vòng đời tiến trình qua trình thông dịch. |
+| **Binary Data Transfer (Base64)** | Ứng dụng mã hóa Base64 để vận chuyển dữ liệu nhị phân (files) an toàn qua các giao thức text-based (HTTP/JSON) mà không làm hỏng cấu trúc. |
 
 ---
 
