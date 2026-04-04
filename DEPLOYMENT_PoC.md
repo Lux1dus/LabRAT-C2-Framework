@@ -104,6 +104,7 @@ Dưới góc độ của một **Blue Team / SOC Analyst**, chúng ta có thể 
 | **Hệ thống (Host)** | Registry Monitoring | Sự xuất hiện của khóa lạ `WindowsUpdateService` trong `HKCU\...\Run` trỏ tới một file `.exe` không xác định. |
 | **Hành vi (Behavior)** | Process Tree | Tiến trình cha (`agent.exe`) liên tục sinh ra các tiến trình con `cmd.exe` thực thi lệnh shell. |
 
+> p/s: Tôi đã có thử triển khai hệ thống này lên máy của bạn mình (Window 11) với sự chấp thuận của bạn ấy. Thì có thể nói, hoạt động như mong đợi (tuy vẫn còn vài lỗi lặt vặt) 
 ---
 <p align="center">
   <b>LabRAT Project - Educational Proof of Concept</b>
