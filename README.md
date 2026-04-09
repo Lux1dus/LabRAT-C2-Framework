@@ -60,7 +60,7 @@ Hệ thống được thiết kế theo kiến trúc module hóa, tối ưu sự
 | **Client**<br>*(Agent / Payload)* | `Python`<br>`PyInstaller` | Dùng `os`, `subprocess`, `psutil`, `winreg` để thao tác sâu vào hệ điều hành. Đóng gói payload thành tập tin `.exe` độc lập.<br>*(Lưu ý: Tệp thực thi biên dịch không được publish trên repository này).* |
 ---
 
-## 🚀 Khởi động Nhanh (Getting Started - Local Lab)
+## Khởi động Nhanh (Getting Started - Local Lab)
 
 Để triển khai thử nghiệm LabRAT trong môi trường nội bộ (Localhost), hãy làm theo các bước sau:
 
