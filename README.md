@@ -1,6 +1,6 @@
-#### ⚠️ Tuyên bố miễn trừ trách nhiệm
+#### ⚠️ Disclaimer
 
-Dự án này là một Proof of Concept được phát triển cho mục đích giáo dục, nghiên cứu an ninh mạng và thử nghiệm trong môi trường kiểm soát, đã được cấp phép. Tác giả (Lux1dus) không chịu trách nhiệm đối với bất kỳ hành vi lạm dụng, thiệt hại hoặc hoạt động trái pháp luật nào phát sinh từ việc sử dụng dự án này. Việc sử dụng công cụ này trên các hệ thống khi chưa có sự cho phép rõ ràng có thể vi phạm pháp luật.
+This project is a Proof of Concept developed for educational purposes, cybersecurity research, and testing within controlled, authorized environments. The author (Lux1dus) assumes no liability for any misuse, damage, or illegal activities arising from the use of this project. Using this tool on systems without explicit permission may violate the law.
 <br>
 
 ---
@@ -14,157 +14,157 @@ Dự án này là một Proof of Concept được phát triển cho mục đích
 
 --- 
 
-## Trải nghiệm Nhanh (System Preview)
+## System Preview
 
-Dưới đây là giao diện trung tâm điều khiển (Command Center) của labRAT khi vừa khởi động server.
+Below is the central Command Center interface of labRAT right after starting the server.
 
 <p align="center">
   <img src="media/gifs/dashboard.gif" alt="LabRAT Dashboard Preview" width="900">
 </p>
 
-**Bạn tò mò hệ thống này vận hành thực tế sẽ ra sao?**
+**Curious about how this system operates in practice?**
 
-[👉 Triển khai & Demo (DEPLOYMENT_PoC.md)](DEPLOYMENT_PoC.md)
-
----
-
-## I. Câu Chuyện Phía Sau (The Backstory & Motivation)
-
-### Khởi nguồn ý tưởng
-Mọi chuyện bắt đầu từ một sự cố thực tế: một người bạn chung phòng với tôi đã vô tình thực thi mã độc (Trojan) do nhầm lẫn nó là một tựa game. Dù đã trực tiếp tham gia xử lý sự cố (Incident Response) ngay lúc đó, chúng tôi cuối cùng vẫn phải cài đặt lại toàn bộ hệ thống để đảm bảo an toàn tuyệt đối. 
-
-Sự việc này đã để lại trong tôi một trăn trở lớn. Thay vì chỉ dừng lại ở việc dùng phần mềm diệt virus và phản ứng thụ động, tôi muốn thực sự chạm vào "phần chìm của tảng băng". Đó là lý do **labRAT** ra đời. Bằng việc tự tay xây dựng một C2 Framework từ con số không, động lực cốt lõi của tôi là thấu hiểu trọn vẹn cách các tác nhân đe dọa (Threat Actors) thiết lập cơ chế giao tiếp, duy trì quyền điều khiển (Persistence), lẩn tránh hệ thống phòng thủ và thao tác trên máy mục tiêu.
-
-### Mục tiêu cá nhân
-* Không muốn "chỉ biết tấn công" mà để bước vào thế giới của "Kiến trúc hệ thống". Hiểu rõ hơn cách vận hành của mã độc.
-* Xây dựng một góc nhìn đa chiều (Purple Team mindset): Hiểu sâu sắc cách mã độc hoạt động để từ đó thiết kế các phương án phòng thủ (Blue Team) hiệu quả hơn.
+[👉 Deployment PoC (DEPLOYMENT_PoC.md)](DEPLOYMENT_PoC.md)
 
 ---
 
-## II. Tổng Quan Dự Án (Project Overview)
+## I. The Backstory & Motivation
 
-### Tóm tắt (Executive Summary)
-- **labRAT (C2 Tactical Ops)** là một hệ thống Command and Control thu nhỏ, hoạt động dựa trên mô hình Client-Server.
+### Origin of the Idea
+It all started with a real incident: a roommate of mine accidentally executed a malware (Trojan), mistaking it for a game. Although I directly participated in the Incident Response at that moment, we ultimately still had to reinstall the entire system to ensure absolute safety.
 
-- Hệ thống cho phép quản trị viên giám sát và điều khiển các Agent (mục tiêu) từ xa thông qua một bảng điều khiển web (Tactical Dashboard) theo thời gian thực.
+This event left a major lingering thought in me. Instead of just stopping at using antivirus software and reacting passively, I wanted to really touch the "tip of the iceberg." That is the reason **labRAT** was born. By manually building a C2 Framework from scratch, my core motivation was to fully understand how Threat Actors establish communication mechanisms, maintain control (Persistence), evade defense systems, and operate on target machines.
 
-- Agent được thiết kế để tự động thu thập sinh hiệu hệ thống (CPU, RAM, OS), nhận lệnh, thực thi ẩn danh và báo cáo kết quả về máy chủ thông qua giao thức HTTP Polling.
+### Personal Goals
+* Not just wanting to "only know how to attack" but to step into the world of "System Architecture". Better understand how malware operates.
+* Build a multidimensional perspective (Purple Team mindset): Deeply understand how malware works in order to design more effective defense strategies (Blue Team).
 
-### Công nghệ sử dụng (Tech Stack)
-Hệ thống được thiết kế theo kiến trúc module hóa, tối ưu sự gọn nhẹ và độc lập. Dưới đây là các thành phần cốt lõi:
+---
 
-| Thành phần (Component) | Công nghệ (Tech) | Vai trò & Đặc điểm (Role & Features) |
+## II. Project Overview
+
+### Executive Summary
+- **labRAT (C2 Tactical Ops)** is a miniature Command and Control system that operates based on a Client-Server model.
+
+- The system allows administrators to remotely monitor and control Agents (targets) via a real-time web dashboard (Tactical Dashboard).
+
+- The Agent is designed to automatically collect system vitals (CPU, RAM, OS), receive commands, execute them stealthily, and report the results back to the server via the HTTP Polling protocol.
+
+### Tech Stack
+The system is designed with a modular architecture, optimizing for lightness and independence. Below are the core components:
+
+| Component | Tech | Role & Features |
 | :--- | :--- | :--- |
-| **Backend**<br>*(C2 Server)* | `Python (Flask)`<br>`SQLite3` | Xử lý RESTful API, quản lý hàng đợi lệnh (Command Queue). Lưu trữ vĩnh cửu trạng thái các Agent, lịch sử lệnh và event logs. |
-| **Frontend**<br>*(Command Center)* | `HTML5 / CSS3`<br>`Vanilla JS` | Cung cấp giao diện Tactical tối màu. Sử dụng Fetch API để xử lý AJAX, cập nhật dữ liệu DOM liên tục mà không cần tải lại trang. |
-| **Client**<br>*(Agent / Payload)* | `Python`<br>`PyInstaller` | Dùng `os`, `subprocess`, `psutil`, `winreg` để thao tác sâu vào hệ điều hành. Đóng gói payload thành tập tin `.exe` độc lập.<br>*(Lưu ý: Tệp thực thi biên dịch không được publish trên repository này).* |
+| **Backend**<br>*(C2 Server)* | `Python (Flask)`<br>`SQLite3` | Handles RESTful APIs, manages the Command Queue. Permanently stores Agent statuses, command history, and event logs. |
+| **Frontend**<br>*(Command Center)* | `HTML5 / CSS3`<br>`Vanilla JS` | Provides a dark-themed Tactical interface. Uses the Fetch API to process AJAX, updating DOM data continuously without reloading the page. |
+| **Client**<br>*(Agent / Payload)* | `Python`<br>`PyInstaller` | Uses `os`, `subprocess`, `psutil`, `winreg` to deeply interact with the operating system. Packages the payload into a standalone `.exe` file.<br>*(Note: The compiled executable file is not published on this repository).* |
 ---
 
-## Khởi động Nhanh (Getting Started - Local Lab)
+## 🚀 Getting Started - Local Lab
 
-Để triển khai thử nghiệm LabRAT trong môi trường nội bộ (Localhost), hãy làm theo các bước sau:
+To deploy and test LabRAT in a local environment (Localhost), follow these steps:
 
-### 1. Cài đặt Môi trường
-Tải mã nguồn và cài đặt các thư viện phụ thuộc:
+### 1. Environment Setup
+Download the source code and install the dependencies:
 ```bash
-# Clone repository (nếu bạn đang xem trên Git)
+# Clone the repository (if you are viewing on Git)
 git clone https://github.com/Lux1dus/LabRAT.git
 cd LabRAT
 
-# Cài đặt thư viện
+# Install dependencies
 pip install -r requirements.txt
 ```
 
-### 2. Khởi chạy C2 Server
-Mở terminal tại thư mục `C2_Server` và chạy:
+### 2. Run the C2 Server
+Open a terminal in the `C2_Server` folder and run:
 ```bash
 cd C2_Server
 python server.py
 ```
-*Mặc định Server sẽ lắng nghe tại cổng **1234**. Bạn có thể truy cập Dashboard tại: `http://127.0.0.1:1234`*
+*By default, the Server will listen on port **1234**. You can access the Dashboard at: `http://127.0.0.1:1234`*
 
-### 3. Triển khai Agent (Mục tiêu)
-Mở một terminal mới tại thư mục `C2_Agent`:
+### 3. Deploy the Agent (Target)
+Open a new terminal in the `C2_Agent` folder:
 ```bash
 cd C2_Agent
-# Chạy agent dưới dạng script để kiểm tra kết nối
+# Run the agent as a script to test the connection
 python agent.py
 ```
-*Lưu ý: Đảm bảo biến `SERVER_URL` trong `agent.py` đang trỏ đúng về địa chỉ IP của Server (mặc định là localhost).*
+*Note: Ensure the `SERVER_URL` variable in `agent.py` is pointing correctly to the Server's IP address (default is localhost).*
 
 ---
 
-### Quy Trình Hoạt Động (Workflow)
+### 🔄 Workflow
 
-![Quy trình hoạt động](media/images/quytrinhhethong.png)
+![Workflow](media/images/quytrinhhethong.png)
 
-Hệ thống được chia làm 3 phân hệ rõ rệt, giao tiếp với nhau qua các RESTful API. Trái tim của hệ thống là `C2 Server` và `SQLite Database` đóng vai trò là trạm trung chuyển. 
+The system is divided into 3 distinct subsystems, communicating with each other via RESTful APIs. The heart of the system is the `C2 Server` and the `SQLite Database` acting as the transit hub.
 
-Để duy trì kết nối mượt mà, Agent hoạt động theo cơ chế Polling kết hợp Beaconing (nhận lệnh & báo cáo trạng thái), trong khi Dashboard sử dụng AJAX Polling để liên tục cập nhật dữ liệu theo thời gian thực.
+To maintain a smooth connection, the Agent operates on a Polling combined with Beaconing mechanism (receiving commands & reporting status), while the Dashboard uses AJAX Polling to continuously update data in real-time.
 
 ---
 
-## III. Kiến Trúc API & Phân Tích Luồng Dữ Liệu (API & Data Flow)
+## III. API Architecture & Data Flow
 
-Hệ thống vận hành nhờ 8 API cốt lõi, áp dụng Polling cho UI (0.5s) và Agent (1s) để đạt độ trễ cực thấp.
+The system operates using 8 core APIs, applying Polling for the UI (0.5s) and Agent (1s) to achieve ultra-low latency.
 
-| Phân hệ | Endpoint | Phương thức | Chức năng cốt lõi (Luồng xử lý) |
+| Subsystem | Endpoint | Method | Core Function (Processing Flow) |
 | :--- | :--- | :--- | :--- |
-| **Agent** | ``/api/agent_checkin`` | POST | Đăng ký Agent mới, thu thập info phần cứng, tạo bot_id. |
-| **Agent** | `/api/sync` | POST | Beaconing duy trì kết nối (báo cáo CPU/RAM) và lấy lệnh từ Queue. |
-| **Agent** | `/api/post_result` | POST | Gửi trả kết quả thực thi Shell về C2 để lưu vào Database. |
-| **Transfer** | `/api/transfer/upload` | POST | Server đọc file -> Base64 -> Gửi cho Agent ghi xuống máy mục tiêu. |
-| **Transfer**| `/api/transfer/download` | POST | Agent đọc file -> Base64 -> Gửi lên Server lưu làm chiến lợi phẩm (Loot). |
-| **UI** | `/api/dashboard_data` | GET | app.js gọi mỗi 0.5s lấy toàn bộ trạng thái DB để update DOM (Real-time).|
-| **UI** | `/api/send_command` | POST | Đẩy lệnh do Operator nhập vào Command Queue của Database. |
-| **UI** | `/` | GET | Trả về index.html (Giao diện Tactical Dashboard). |
+| **Agent** | ``/api/agent_checkin`` | POST | Register a new Agent, collect hardware info, generate bot_id. |
+| **Agent** | `/api/sync` | POST | Beaconing to maintain connection (report CPU/RAM) and fetch commands from the Queue. |
+| **Agent** | `/api/post_result` | POST | Send the Shell execution result back to the C2 to be stored in the Database. |
+| **Transfer** | `/api/transfer/upload` | POST | Server reads file -> Base64 -> Sends to Agent to write to the target machine. |
+| **Transfer**| `/api/transfer/download` | POST | Agent reads file -> Base64 -> Sends to Server to store as Loot. |
+| **UI** | `/api/dashboard_data` | GET | app.js calls every 0.5s to get the entire DB status to update the DOM (Real-time).|
+| **UI** | `/api/send_command` | POST | Pushes commands entered by the Operator into the Database's Command Queue. |
+| **UI** | `/` | GET | Returns index.html (Tactical Dashboard Interface). |
 
 ---
 
-### Sơ Đồ Giao Tiếp Chuyên Sâu (Detailed API Routing)
-Để làm rõ quá trình xử lý của các Endpoint trên, dưới đây là sơ đồ luồng dữ liệu chi tiết, minh họa chính xác cách Agent, C2 Server và lớp cơ sở dữ liệu (Database) tương tác với nhau trong một vòng đời thực thi lệnh:
+### Detailed API Routing
+To clarify the processing of the above Endpoints, below is a detailed data flow diagram, accurately illustrating how the Agent, C2 Server, and Database layer interact with each other within a command execution lifecycle:
 
-![Sơ Đồ API Chi Tiết](media/images/hethongapi.png)
+![Detailed API Diagram](media/images/hethongapi.png)
 
 ---
 
-## IV. Các Điểm Hạn Chế & Cần Cải Thiện (Current Limitations)
+## V. Current Limitations
 
-Là một dự án Lab (Proof of Concept), **labRAT** vẫn còn một số điểm yếu cốt lõi nếu bị triển khai trong môi trường thực chiến có hệ thống giám sát chặt chẽ (EDR/IDS):
+As a Lab project (Proof of Concept), **labRAT** still has some core weaknesses if deployed in a real-world environment with strict monitoring systems (EDR/IDS):
 
-| Nhược điểm (Limitation) | Nguyên nhân kỹ thuật | Rủi ro Bảo mật (Risk) |
+| Limitation | Technical Reason | Security Risk |
 | :--- | :--- | :--- |
-| **Dấu vết mạng ồn ào**<br>*(Noisy Network Traffic)* | Agent thiết lập Beaconing cố định mỗi 1 giây (nhịp tim tĩnh). | Rất dễ bị các hệ thống phân tích lưu lượng (Network Traffic Analysis) phát hiện sự bất thường. |
-| **Giao tiếp bản rõ**<br>*(Plaintext HTTP)* | Toàn bộ lệnh và kết quả đang đi qua kênh HTTP không được bọc mã hóa. | Các công cụ giám sát hoặc IDS (như Wireshark, Snort) có thể bắt gói tin (Sniffing) và đọc được toàn bộ dữ liệu. |
-| **Kích thước Payload lớn**<br>*(Heavy Payload)* | Agent viết bằng Python và đóng gói bằng PyInstaller thường tạo ra file `.exe` dung lượng >10MB. | Dễ bị các phần mềm Diệt virus (AV) truyền thống nhận diện, phân tích và chặn đứng dựa trên chữ ký (Signature). |
+| **Noisy Network Traffic** | The Agent establishes a fixed Beaconing every 1 second (static heartbeat). | Very easy to be detected as an anomaly by Network Traffic Analysis systems. |
+| **Plaintext HTTP** | All commands and results pass through an unencrypted HTTP channel. | Monitoring tools or IDS (like Wireshark, Snort) can sniff packets and read all data. |
+| **Heavy Payload** | The Agent is written in Python and packaged by PyInstaller, which usually creates an `.exe` file larger than 10MB. | Easily recognized, analyzed, and blocked by traditional Antivirus (AV) software based on Signatures. |
 
 ---
 
-## V. Hướng Phát Triển Tương Lai (Future Roadmap)
+## VI. Future Roadmap
 
-Để nâng cấp labRAT tiệm cận hơn với một C2 Framework cấp độ nghiên cứu (Research-grade) và tăng khả năng lẩn tránh (Defense Evasion), lộ trình phát triển được chia thành các giai đoạn sau:
+To upgrade labRAT closer to a Research-grade C2 Framework and increase Defense Evasion capabilities, the development roadmap is divided into the following phases:
 
-| Giai đoạn | Module Nâng cấp | Mô tả chi tiết kỹ thuật | Mục tiêu cốt lõi |
+| Phase | Upgrade Module | Detailed Technical Description | Core Objective |
 | :---: | :--- | :--- | :--- |
-| **Phase 2** | **Mở rộng Vũ khí**<br>*(Offensive Modules)* | Bổ sung tính năng Keylogger, chụp ảnh màn hình (Screenshot), và trích xuất thông tin định danh (Credential dumping). | Nâng cao khả năng thu thập thông tin tình báo sau khi xâm nhập (Post-Exploitation). |
-| **Phase 3** | **Phân tán Nằm vùng**<br>*(Redundant Persistence)* | Không chỉ dựa vào Registry, Agent sẽ phân thân và duy trì qua nhiều trạm: Scheduled Tasks, WMI Events, hoặc DLL Hijacking. Xây dựng một tiến trình "Watchdog" theo dõi chéo. | Đảm bảo Agent "bất tử". Nếu nạn nhân xóa khóa Registry, các cơ chế dự phòng sẽ lập tức khôi phục lại kết nối. |
-| **Phase 4** | **Mã hóa Giao tiếp**<br>*(Payload Encryption)* | Tích hợp TLS/HTTPS hoặc tự bọc (wrap) dữ liệu API bằng các thuật toán mã hóa mạnh như AES-256 kết hợp trao đổi khóa RSA. | Chống lại việc phân tích gói tin mạng và che giấu hoàn toàn các thao tác điều khiển. |
-| **Phase 5** | **Tàng hình Nhịp tim**<br>*(Beacon Jittering)* | Thay vì ngủ cố định 1s, Agent sẽ dùng thuật toán random thời gian ngủ (VD: 2s ± 15%). | Đánh lừa các thuật toán phân tích hành vi mạng dựa trên chu kỳ tĩnh của Blue Team. |
-| **Phase 6** | **Tối ưu Hóa Payload**<br>*(Compiled Language)* | Chuyển đổi toàn bộ mã nguồn Agent từ Python sang các ngôn ngữ biên dịch cấp thấp như `C/C++`, `Rust` hoặc `Golang`. | Giảm thiểu tối đa kích thước file (< 2MB), loại bỏ các thư viện dependency và gây khó khăn cho quá trình dịch ngược (Reverse Engineering). |
+| **Phase 2** | **Offensive Modules** | Add Keylogger, Screenshot, and Credential dumping features. | Enhance intelligence gathering capabilities after intrusion (Post-Exploitation). |
+| **Phase 3** | **Redundant Persistence** | Not just relying on the Registry, the Agent will clone itself and maintain presence through multiple avenues: Scheduled Tasks, WMI Events, or DLL Hijacking. Build a "Watchdog" process for cross-monitoring. | Ensure the Agent is "immortal". If the victim deletes the Registry key, fallback mechanisms will immediately restore the connection. |
+| **Phase 4** | **Payload Encryption** | Integrate TLS/HTTPS or wrap API data using strong encryption algorithms like AES-256 combined with RSA key exchange. | Counter network packet analysis and completely hide control operations. |
+| **Phase 5** | **Beacon Jittering** | Instead of sleeping fixed 1s, the Agent will use an algorithm to randomize sleep time (e.g., 2s ± 15%). | Deceive network behavior analysis algorithms based on static cycles by the Blue Team. |
+| **Phase 6** | **Compiled Language** | Port the entire Agent source code from Python to low-level compiled languages like `C/C++`, `Rust`, or `Golang`. | Minimize file size (< 2MB), eliminate dependencies, and complicate Reverse Engineering. |
 
 ---
 
-## VI. Những kiến thức mới (Key Learnings & Concepts)
+## VII. Key Learnings & Concepts
 
-Trong quá trình xây dựng **labRAT**, tôi đã tiếp cận và làm chủ được các kỹ thuật cốt lõi sau:
+During the process of building **labRAT**, I approached and mastered the following core techniques:
 
-| Kiến thức | Chi tiết kỹ thuật & Ứng dụng |
+| Knowledge Area | Technical Details & Application |
 | :--- | :--- |
-| **Kiến trúc Client-Server (Flask)** | Xây dựng C2 Server quản lý Agent, triển khai cơ chế truyền tải tệp tin đa nền tảng (Linux/Windows) trong mạng LAN. |
-| **AJAX & JSON Dynamic Data** | Sử dụng Fetch API để đồng bộ hóa dữ liệu thời gian thực giữa UI và Backend; xử lý và trích xuất dữ liệu từ cấu trúc JSON. |
-| **Payload Packaging (PyInstaller)** | Đóng gói mã nguồn Python thành tệp thực thi `.exe` độc lập, tối ưu hóa khả năng chạy trên môi trường mục tiêu không có sẵn Python. |
-| **System Interaction (os & sys)** | Thao tác sâu với OS qua Absolute Path, quản lý Working Directory (CWD) và điều khiển vòng đời tiến trình qua trình thông dịch. |
-| **Binary Data Transfer (Base64)** | Ứng dụng mã hóa Base64 để vận chuyển dữ liệu nhị phân (files) an toàn qua các giao thức text-based (HTTP/JSON) mà không làm hỏng cấu trúc. |
+| **Client-Server Architecture (Flask)** | Built a C2 Server to manage Agents, deployed a cross-platform (Linux/Windows) file transfer mechanism within a LAN. |
+| **AJAX & JSON Dynamic Data** | Used the Fetch API to synchronize real-time data between the UI and Backend; processed and extracted data from JSON structures. |
+| **Payload Packaging (PyInstaller)** | Packaged Python source code into a standalone `.exe` executable, optimized for running on target environments without Python installed. |
+| **System Interaction (os & sys)** | Interacted deeply with the OS via Absolute Paths, managed Working Directory (CWD), and controlled the process lifecycle through the interpreter. |
+| **Binary Data Transfer (Base64)** | Applied Base64 encoding to transport binary data (files) safely over text-based protocols (HTTP/JSON) without corrupting the structure. |
 
 ---
 

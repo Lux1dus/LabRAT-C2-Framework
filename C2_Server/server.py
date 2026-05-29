@@ -36,7 +36,7 @@ logging.getLogger("werkzeug").addFilter(NoSpamFilter())
 db.init_db()
 
 # SAFE MODE: tạo dữ liệu mẫu để demo nhanh
-SAFE_MODE = os.getenv('C2_SAFE_MODE', 'True').strip().lower() in ('1', 'true', 'yes')
+SAFE_MODE = os.getenv('C2_SAFE_MODE', 'False').strip().lower() in ('1', 'true', 'yes')
 if SAFE_MODE:
     db.check_in_agent('SAFE_AGENT', {
         'os_ver': 'Windows 10 Pro (Build 19042)',
